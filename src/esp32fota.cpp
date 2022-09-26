@@ -690,6 +690,12 @@ bool esp32FOTA::execHTTPcheck()
         return false;  // WiFi not connected
     }
 
+    // Check if url is there
+    if(useURL.isEmpty()) {
+        log_e("No URL provided, aborting.");
+        return false;
+    }
+
     log_i("Getting HTTP: %s", useURL.c_str());
     log_i("------");
 
